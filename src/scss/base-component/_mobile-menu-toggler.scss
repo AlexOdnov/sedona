@@ -1,0 +1,72 @@
+.mobile-menu-toggler {
+  $mmt-color: #000;
+  $mmt-size: 40px;
+
+  position: relative;
+
+  display: block;
+  width: $mmt-size;
+  height: $mmt-size;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &__element {
+    display: block;
+    width: 100%;
+    height: $mmt-size * 0.1;
+    background-color: $mmt-color;
+    border-radius: $mmt-size * 0.05;
+    transition: all 0.3s ease 0s;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: $mmt-size * 0.1;
+    background-color: $mmt-color;
+    border-radius: $mmt-size * 0.05;
+    transition: all 0.3s ease 0s;
+  }
+
+  &::before {
+    top: $mmt-size * 0.15;
+  }
+
+  &::after {
+    bottom: $mmt-size * 0.15;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    &::before,
+    &::after {
+      background-color: #fff;
+    }
+    .mobile-menu-toggler__element {
+      background-color: #fff;
+    }
+  }
+
+  &.active {
+  }
+
+  &.active::before {
+    top: $mmt-size * 0.5 - $mmt-size * 0.05;
+    transform: rotate(45deg);
+  }
+
+  &.active::after {
+    bottom: $mmt-size * 0.5 - $mmt-size * 0.05;
+    transform: rotate(-45deg);
+  }
+
+  &.active .mobile-menu-toggler__element {
+    transform: scale(0);
+  }
+}

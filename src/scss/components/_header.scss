@@ -1,0 +1,57 @@
+.header {
+  $header-height: 90px;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  background-color: $color-accent-1;
+
+  z-index: 5;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+
+    display: block;
+    width: 100vw;
+    height: $header-height;
+
+    background-color: $color-accent-1;
+
+    z-index: 5;
+    @media #{$tablet} {
+      display: none;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: $header-height;
+
+    @media #{$tablet} {
+      height: auto;
+    }
+  }
+
+  &__logo {
+    z-index: 10;
+  }
+
+  &__mmt {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+
+    z-index: 10;
+    @media #{$tablet} {
+      display: none;
+    }
+  }
+}

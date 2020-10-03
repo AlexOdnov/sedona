@@ -1,0 +1,73 @@
+.navigation {
+  $header-height: 90px;
+  $mob-mozilla: 45px; //mobile mozilla bug with bottom navbar
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100vw;
+
+  background-color: $bg-color-base;
+  color: $font-color-base;
+  z-index: 4;
+  transform: translateY(-100%);
+
+  @media #{$tablet} {
+    position: static;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    background-color: initial;
+    transform: translateY(0);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: nowrap;
+    max-height: calc(100vh - #{$header-height} - #{$mob-mozilla});
+    overflow-y: auto;
+
+    @media #{$tablet} {
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    padding: 0.5em;
+
+    @media #{$tablet} {
+      flex-grow: 1;
+    }
+  }
+
+  &__link {
+    display: block;
+    text-align: center;
+
+    @media #{$tablet} {
+      text-decoration: none;
+      transition: text-decoration 0.3s ease 0s;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.active {
+    transform: translateY(100%);
+
+    @media #{$tablet} {
+      transform: translateY(0);
+    }
+  }
+}

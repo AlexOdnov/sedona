@@ -1,0 +1,38 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+  pointer-events: none;
+
+  background-color: rgba($color-dark-1, 0.9);
+  opacity: 0;
+  transition: all 0.3s ease 0s;
+  z-index: 10;
+
+  // .modal__content
+  &__content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    max-height: 100vh;
+
+    background-color: $bg-color-base;
+    border: 1px solid $border-color;
+
+    box-shadow: 0 5px 10px 0 rgba($color-dark-1, 0.25);
+    transform: translate(-50%, -50%);
+
+    overflow-y: auto;
+  }
+
+  &.active {
+    visibility: visible;
+    pointer-events: initial;
+    opacity: 1;
+  }
+}
