@@ -4,21 +4,29 @@
   align-items: center;
   justify-content: center;
 
-  font-size: $font-size-base;
+  font-size: $font-size-btn;
   font-weight: $font-weight-bold;
   text-decoration: none;
   text-transform: uppercase;
-  color: $font-color-base;
+  color: $font-color-btn;
 
-  border: 2px solid $border-color;
+  border: 2px solid $bg-color-btn;
 
   transition: all 0.3s ease 0s;
   outline: none;
 
   &:hover,
   &:focus {
+    color: $font-color-btn--hover;
+
+    background-color: $bg-color-btn--hover;
+    border-color: $bg-color-btn--hover;
   }
   &:active {
+    color: $font-color-btn--active;
+
+    background-color: $bg-color-btn--active;
+    border-color: $bg-color-btn--active;
   }
 
   // .btn--wide

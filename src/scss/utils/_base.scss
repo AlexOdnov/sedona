@@ -1,10 +1,19 @@
-body {
+html {
   color: $font-color-base;
   font-family: $font-base;
   font-size: $font-size-base;
   font-weight: $font-weight-base;
 
   background-color: $bg-color-base;
+}
+
+.page-wrapper {
+  width: 100%;
+  @media #{$desktop} {
+    padding: 0 40px;
+
+    box-shadow: 0px 0px 15px 5px rgba(#000, 0.2);
+  }
 }
 
 .container {

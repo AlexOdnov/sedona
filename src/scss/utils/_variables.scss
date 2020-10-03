@@ -1,50 +1,53 @@
 $color-light-1: #fff;
+$color-light-2: #f2f2f2;
+$color-light-3: #eeeeee;
 $color-dark-1: #000;
-$color-accent-1: #230597;
+$color-dark-2: #333333;
+$color-accent-1: #81b3d2;
 
-$font-color-base: $color-dark-1;
+$font-color-base: $color-dark-2;
 $font-color-light: $color-light-1;
 $font-color-title: $color-dark-1;
-$font-color-link: $color-dark-1;
-$font-color-link--hover: rgba($color-dark-1, 0.6);
-$font-color-link--active: rgba($color-dark-1, 0.3);
-$font-color-btn: $color-dark-1;
+$font-color-btn: $color-light-1;
 $font-color-btn--hover: $color-light-1;
 $font-color-btn--active: rgba($color-light-1, 0.3);
 
 $bg-color-base: $color-light-1;
-$bg-color-dark: $color-dark-1;
-$bg-color-btn: $color-light-1;
-$bg-color-btn--hover: $color-dark-1;
-$bg-color-btn--active: $color-dark-1;
+$bg-color-dark: $color-light-3;
+$bg-color-btn: $color-accent-1;
+$bg-color-btn--hover: darken($color-accent-1, 15%);
+$bg-color-btn--active: darken($color-accent-1, 25%);
 
-$icon-color: $color-accent-1;
-$icon-color--hover: rgba($color-accent-1, 0.6);
-$icon-color--active: rgba($color-accent-1, 0.3);
+$icon-color: $color-light-1;
+$icon-color--hover: $color-light-1;
+$icon-color--active: rgba($color-light-1, 0.3);
 
-$border-color: $color-dark-1;
+$border-color: $color-dark-2;
 
-$font-base: 'Open Sans', sans-serif;
+$font-base: 'PT Sans', sans-serif;
 $font-accent: 'Roboto', sans-serif;
 
-$font-size-base: 16px;
+$font-size-base: 14px;
 $font-size-small: 0.8rem;
-$font-size-big: 1.2rem;
-$font-size-title: 2rem;
+$font-size-big: 18px;
+$font-size-big-tab: 21px;
+$font-size-btn: 21px;
+$font-size-title: 21px;
+$font-size-title-tab: 30px;
 
 $font-weight-base: 400;
 $font-weight-bold: 700;
 $font-weight-thin: 100;
 
 $container-width: 1200px;
-$container-padding: 30px;
+$container-padding: 20px;
 
 //breakpoint
 $bp-mob: 320px;
 $bp-mob-large: 480px;
 $bp-tab: 768px;
 $bp-lap: 800px;
-$bp-des: 1250px;
+$bp-des: 1280px;
 
 //mobile-first media query
 $mobile: (
