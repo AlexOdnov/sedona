@@ -9,12 +9,10 @@ html {
 
 .page-wrapper {
   width: 100%;
-  @media #{$desktop} {
-    max-width: $container-width;
-    margin: 0 auto;
+  max-width: $container-width;
+  margin: 0 auto;
 
-    box-shadow: 0px 0px 15px 5px rgba(#000, 0.2);
-  }
+  box-shadow: 0px 0px 15px 5px rgba(#000, 0.2);
 }
 
 .container {

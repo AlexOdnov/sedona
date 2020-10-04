@@ -1,5 +1,5 @@
 .navigation {
-  $header-height: 70px;
+  // $header-height: 70px;
   $mob-mozilla: 45px; //mobile mozilla bug with bottom navbar
 
   position: absolute;
@@ -81,7 +81,7 @@
 
   &__link {
     display: block;
-    padding: 1em;
+    padding: 1em 0.5em;
 
     text-align: center;
     font-size: $font-size-big;

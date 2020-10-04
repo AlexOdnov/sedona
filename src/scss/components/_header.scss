@@ -1,5 +1,5 @@
 .header {
-  $header-height: 70px;
+  // $header-height: 70px;
 
   position: sticky;
   top: 0;
@@ -11,6 +11,10 @@
   background-color: $bg-color-base;
 
   z-index: 5;
+
+  @media #{$tablet} {
+    height: auto;
+  }
 
   &::after {
     content: '';
