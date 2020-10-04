@@ -47,8 +47,8 @@
   &__item {
     width: 100%;
 
-    border-top: 1px solid #678fa8;
-    border-bottom: 1px solid #9ac2db;
+    border-bottom: 1px solid #678fa8;
+    border-top: 1px solid #9ac2db;
 
     &:first-child {
       border-top: none;
@@ -124,7 +124,7 @@
   }
 
   &.active {
-    transform: translateY(calc(100% + #{$header-height}));
+    transform: translateY(100%);
 
     @media #{$tablet} {
       transform: translateY(0);
