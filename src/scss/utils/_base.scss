@@ -22,6 +22,16 @@ html {
   padding-right: $container-padding;
 }
 
+.title {
+  font-size: $font-size-title;
+  font-weight: $font-weight-bold;
+  color: $font-color-title;
+  text-transform: uppercase;
+  @media #{$tablet} {
+    font-size: $font-size-title-tab;
+  }
+}
+
 .non-scrollable {
   overflow-y: hidden;
 }
