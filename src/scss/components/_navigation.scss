@@ -1,15 +1,15 @@
 .navigation {
-  $header-height: 90px;
+  $header-height: 70px;
   $mob-mozilla: 45px; //mobile mozilla bug with bottom navbar
 
   position: absolute;
   bottom: 0;
   left: 0;
 
-  width: 100vw;
+  width: 100%;
 
-  background-color: $bg-color-base;
-  color: $font-color-base;
+  background-color: $color-accent-1;
+  color: $font-color-light;
   z-index: 4;
   transform: translateY(-100%);
 
@@ -18,7 +18,8 @@
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
+
+    color: $font-color-base;
 
     background-color: initial;
     transform: translateY(0);
@@ -37,34 +38,93 @@
       flex-wrap: wrap;
       flex-direction: row;
       justify-content: space-between;
+      width: 100%;
+
+      overflow-y: initial;
     }
   }
 
   &__item {
-    padding: 0.5em;
+    width: 100%;
+
+    border-top: 1px solid #678fa8;
+    border-bottom: 1px solid #9ac2db;
+
+    &:first-child {
+      border-top: none;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
 
     @media #{$tablet} {
       flex-grow: 1;
+
+      flex-basis: 140px;
+
+      border: none;
+    }
+    @media #{$desktop} {
+      flex-basis: 240px;
+    }
+
+    &--logo {
+      display: none;
+      @media #{$tablet} {
+        position: relative;
+
+        display: block;
+        height: 100%;
+      }
     }
   }
 
   &__link {
     display: block;
+    padding: 1em;
+
     text-align: center;
+    font-size: $font-size-big;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+
+    transition: all 0.3s ease 0s;
+
+    &[href]:hover,
+    &[href]:focus {
+      background-color: darken($color-accent-1, 15%);
+    }
+    &[href]:active {
+      color: rgba($color-light-1, 0.3);
+      background-color: darken($color-accent-1, 25%);
+    }
 
     @media #{$tablet} {
-      text-decoration: none;
-      transition: text-decoration 0.3s ease 0s;
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
+      &:not([href]) {
+        color: #766357;
       }
+      &[href]:hover,
+      &[href]:focus {
+        color: $color-accent-1;
+        background-color: initial;
+      }
+      &[href]:active {
+        color: rgba($font-color-base, 0.3);
+        background-color: initial;
+      }
+    }
+
+    &--logo {
+      padding: 0;
+
+      line-height: 1;
+      font-size: 0;
     }
   }
 
   &.active {
-    transform: translateY(100%);
+    transform: translateY(calc(100% + #{$header-height}));
 
     @media #{$tablet} {
       transform: translateY(0);

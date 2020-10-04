@@ -1,24 +1,44 @@
 <header class="header">
-  <div class="container header__container">
-    <a class="logo header__logo" href="#">
-      <picture>
-        <source srcset="" type="image/webp" />
-        <img src="" alt="Логотип " />
-      </picture>
-    </a>
-    <nav class="navigation header__navigation">
-      <ul class="navigation__list">
-        <li class="navigation__item">
-          <a class="navigation__link" href="#"></a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <a class="logo header__logo" href="index.html" aria-label="На главную">
+    <img src="../img/contentImage/logo-mobile.svg" alt="Логотип Sedona" />
+  </a>
+  <nav class="navigation header__navigation">
+    <ul class="navigation__list">
+      <li class="navigation__item">
+        <a class="navigation__link" href="index.html">главная</a>
+      </li>
+      <li class="navigation__item">
+        <a class="navigation__link" @@photoLink>фото и видео</a>
+      </li>
+      <li class="navigation__item navigation__item--logo">
+        <a
+          class="navigation__link navigation__link--logo logo"
+          href="index.html"
+          aria-label="На главную"
+        >
+          <picture>
+            <source
+              media="(min-width: 1250px)"
+              srcset="../img/contentImage/logo-desktop.svg"
+            />
+            <img
+              src="../img/contentImage/logo-mobile.svg"
+              alt="Логотип Мишка"
+            /> </picture
+        ></a>
+      </li>
+      <li class="navigation__item">
+        <a class="navigation__link" @@feedbackLink>форма отзыва</a>
+      </li>
+      <li class="navigation__item">
+        <a class="navigation__link" href="#">контакты</a>
+      </li>
+    </ul>
+  </nav>
   <button
     class="mobile-menu-toggler header__mmt"
     type="button"
     aria-label="Меню"
-    data-fixed="outer"
   >
     <span class="mobile-menu-toggler__element"></span>
   </button>

@@ -1,5 +1,5 @@
 .header {
-  $header-height: 90px;
+  $header-height: 70px;
 
   position: sticky;
   top: 0;
@@ -7,7 +7,7 @@
 
   width: 100%;
 
-  background-color: $color-accent-1;
+  background-color: $bg-color-base;
 
   z-index: 5;
 
@@ -18,10 +18,10 @@
     top: 0;
 
     display: block;
-    width: 100vw;
+    width: 100%;
     height: $header-height;
 
-    background-color: $color-accent-1;
+    background-color: $bg-color-base;
 
     z-index: 5;
     @media #{$tablet} {
@@ -29,25 +29,18 @@
     }
   }
 
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: $header-height;
-
-    @media #{$tablet} {
-      height: auto;
-    }
-  }
-
   &__logo {
     z-index: 10;
+
+    @media #{$tablet} {
+      display: none;
+    }
   }
 
   &__mmt {
     position: fixed;
-    top: 25px;
-    right: 25px;
+    top: 15px;
+    right: 15px;
 
     z-index: 10;
     @media #{$tablet} {

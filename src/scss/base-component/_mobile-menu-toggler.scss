@@ -1,5 +1,5 @@
 .mobile-menu-toggler {
-  $mmt-color: #000;
+  $mmt-color: $color-accent-1;
   $mmt-size: 40px;
 
   position: relative;
@@ -46,10 +46,10 @@
   &:active {
     &::before,
     &::after {
-      background-color: #fff;
+      background-color: darken($color-accent-1, 15%);
     }
     .mobile-menu-toggler__element {
-      background-color: #fff;
+      background-color: darken($color-accent-1, 15%);
     }
   }
 
