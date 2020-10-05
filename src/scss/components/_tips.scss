@@ -1,0 +1,91 @@
+.tips {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  @media #{$tablet} {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  // .tips__item
+  &__item {
+    max-width: 280px;
+    padding: 15px 20px 15px 50px;
+    @media #{$tablet} {
+      padding: 40px 50px;
+    }
+    @media #{$desktop} {
+      max-width: 400px;
+      padding-bottom: 60px;
+    }
+  }
+  // .tips__title
+  &__title {
+    position: relative;
+
+    margin-bottom: 15px;
+
+    color: $font-color-title;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-big;
+    text-transform: uppercase;
+    @media #{$tablet} {
+      padding-top: 100px;
+
+      text-align: center;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 0;
+
+      display: block;
+      width: 40px;
+      height: 40px;
+
+      transform: translate(calc(-100% - 10px), -50%);
+      @media #{$tablet} {
+        top: 0;
+        left: 50%;
+
+        width: 80px;
+        height: 80px;
+
+        transform: translate(-50%, 0);
+      }
+    }
+    // .tips__title--house
+    &--house {
+      &::before {
+        background: no-repeat center/contain
+          url(../../img/backgrounds/house-icon.svg);
+      }
+    }
+    // .tips__title--food
+    &--food {
+      &::before {
+        background: no-repeat center/contain
+          url(../../img/backgrounds/hamburger-icon.svg);
+      }
+    }
+    // .tips__title--gift
+    &--gift {
+      &::before {
+        background: no-repeat center/contain
+          url(../../img/backgrounds/gift-icon.svg);
+      }
+    }
+  }
+  // .tips__text
+  &__text {
+    text-transform: uppercase;
+    @media #{$tablet} {
+      text-align: center;
+    }
+  }
+}
