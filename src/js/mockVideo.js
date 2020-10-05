@@ -28,7 +28,7 @@ const mockVideo = () => {
   const updateVideo = () => {
     const width = videoContainer.offsetWidth;
     const height = videoContainer.offsetHeight;
-    const video = videoContainer.querySelector('video-iframe');
+    const video = videoContainer.querySelector('.video-iframe');
 
     video.width = width;
     video.height = height;

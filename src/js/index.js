@@ -1,5 +1,11 @@
 import mobileMenu from './mobileMenu';
 import openMap from './openMap';
+import mockVideo from './mockVideo';
 
 mobileMenu();
-openMap();
+if (document.querySelector('.map')) {
+  openMap();
+}
+if (document.querySelector('.video')) {
+  mockVideo();
+}
