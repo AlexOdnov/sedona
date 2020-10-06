@@ -14,7 +14,6 @@ const mockVideo = () => {
     iframe.src =
       'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&iv_load_policy=3';
     iframe.frameBorder = '0';
-    iframe.allow = 'autoplay;';
     iframe.allowfullscreen = '';
     iframe.classList = 'video-iframe';
 

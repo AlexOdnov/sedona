@@ -277,7 +277,10 @@ const server = () => {
       baseDir: projectFolder,
     },
     host: localIPAddress,
-    browser: ['chrome', 'firefox'],
+    browser: [
+      'chrome',
+      'C:\\Program Files\\Firefox Developer Edition\\firefox.exe',
+    ],
   });
 
   watch(path.watch.html, html);
