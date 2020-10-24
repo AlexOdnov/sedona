@@ -1,8 +1,8 @@
 html {
-  color: $font-color-base;
   font-family: $font-base;
-  font-size: $font-size-base;
   font-weight: $font-weight-base;
+  font-size: $font-size-base;
+  color: $font-color-base;
 
   background-color: $bg-color-base;
 }
@@ -12,21 +12,22 @@ html {
   max-width: $container-width;
   margin: 0 auto;
 
-  box-shadow: 0px 0px 15px 5px rgba(#000, 0.2);
+  box-shadow: 0 0 15px 5px rgba(#000, 0.2);
 }
 
 .container {
-  margin: 0 auto;
   max-width: $container-width;
-  padding-left: $container-padding;
+  margin: 0 auto;
   padding-right: $container-padding;
+  padding-left: $container-padding;
 }
 
 .title {
-  font-size: $font-size-title;
   font-weight: $font-weight-bold;
-  color: $font-color-title;
+  font-size: $font-size-title;
   text-transform: uppercase;
+  color: $font-color-title;
+
   @media #{$tablet} {
     font-size: $font-size-title-tab;
   }
@@ -43,13 +44,13 @@ input[type='radio'].visually-hidden {
 
   width: 1px;
   height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
 
   clip-path: inset(100%);
-  clip: rect(0 0 0 0);
+  margin: -1px;
+  padding: 0;
   overflow: hidden;
+
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
 }

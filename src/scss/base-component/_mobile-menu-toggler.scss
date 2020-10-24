@@ -8,28 +8,25 @@
   width: $mmt-size;
   height: $mmt-size;
   padding: 0;
+
   background: none;
   border: none;
-  cursor: pointer;
 
-  &__element {
-    display: block;
-    width: 100%;
-    height: $mmt-size * 0.1;
-    background-color: $mmt-color;
-    border-radius: $mmt-size * 0.05;
-    transition: all 0.3s ease 0s;
-  }
+  cursor: pointer;
 
   &::before,
   &::after {
     content: '';
+
     position: absolute;
+
     display: block;
     width: 100%;
     height: $mmt-size * 0.1;
+
     background-color: $mmt-color;
     border-radius: $mmt-size * 0.05;
+
     transition: all 0.3s ease 0s;
   }
 
@@ -48,9 +45,21 @@
     &::after {
       background-color: darken($color-accent-1, 15%);
     }
+
     .mobile-menu-toggler__element {
       background-color: darken($color-accent-1, 15%);
     }
+  }
+
+  &__element {
+    display: block;
+    width: 100%;
+    height: $mmt-size * 0.1;
+
+    background-color: $mmt-color;
+    border-radius: $mmt-size * 0.05;
+
+    transition: all 0.3s ease 0s;
   }
 
   &.active {

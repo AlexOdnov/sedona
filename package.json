@@ -15,7 +15,9 @@
     "favicon": "gulp favicon",
     "ie": "gulp ieTest",
     "deploy": "npm run build && gh-pages -d build",
-    "gh-pages-help": "gh-pages --help"
+    "gh-pages-help": "gh-pages --help",
+    "stylelint": "stylelint \"**/*.scss\" --output-file stylelintReport.txt",
+    "stylelint-fix": "stylelint \"**/*.scss\" --fix --output-file stylelintReport.txt"
   },
   "browserslist": [
     "last 3 version",
@@ -23,6 +25,9 @@
     "> 1%",
     "ie 11"
   ],
+  "prettier": {
+    "singleQuote": true
+  },
   "devDependencies": {
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
@@ -45,6 +50,10 @@
     "gulp-sass-glob": "^1.1.0",
     "gulp-svg-sprite": "^1.5.0",
     "gulp-webp": "^4.0.1",
+    "stylelint": "^13.7.2",
+    "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0",
     "webpack": "^4.44.1",
     "webpack-stream": "^5.2.1"
   }

@@ -5,8 +5,9 @@
   $stt-arrow: 50px;
 
   position: fixed;
-  bottom: 50px;
   right: 50px;
+  bottom: 50px;
+  z-index: 5;
 
   display: block;
   width: $stt-size;
@@ -16,14 +17,13 @@
   background-color: $stt-bg;
   border: 1px solid transparent;
   border-radius: 0;
+  opacity: 0;
+  visibility: hidden;
 
-  cursor: pointer;
-  z-index: 5;
   transition: all 0.3s ease 0s;
 
-  visibility: hidden;
+  cursor: pointer;
   pointer-events: none;
-  opacity: 0;
 
   &::before,
   &::after {
@@ -31,11 +31,14 @@
     position: absolute;
     top: 50%;
     left: 50%;
+
     display: block;
     width: $stt-arrow * 0.1;
     height: $stt-arrow / 1.41;
+
     background-color: $stt-color;
     border-radius: $stt-arrow * 0.05;
+
     transform-origin: top center;
   }
 
@@ -48,8 +51,8 @@
   }
 
   &.active {
+    opacity: 1;
     visibility: visible;
     pointer-events: initial;
-    opacity: 1;
   }
 }

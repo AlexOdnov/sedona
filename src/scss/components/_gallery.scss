@@ -3,55 +3,67 @@
   flex-direction: column;
   align-items: center;
   padding-top: 35px;
+
   @media #{$tablet} {
     padding-top: 70px;
   }
+
   @media #{$desktop} {
     padding-top: 105px;
   }
-  // .gallery__title
+
+  //.gallery__title
   &__title {
     margin: 0;
     margin-bottom: 30px;
     padding: 0 40px;
 
     text-align: center;
+
     @media #{$tablet} {
       max-width: 510px;
     }
   }
-  // .gallery__text
+
+  //.gallery__text
   &__text {
     margin-bottom: 35px;
     padding: 0 40px;
 
-    text-transform: uppercase;
     text-align: center;
+    text-transform: uppercase;
+
     @media #{$tablet} {
       max-width: 510px;
       margin-bottom: 70px;
     }
   }
-  // .gallery__grid
+
+  //.gallery__grid
   &__grid {
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    width: 100%;
+
     @media #{$tablet} {
       padding: 0 60px;
     }
+
     @media #{$desktop} {
       padding: 0;
     }
   }
-  // .gallery__post
+
+  //.gallery__post
   &__post {
     @media #{$desktop} {
       height: 270px;
     }
-    // .gallery__post--wide
+
+    //.gallery__post--wide
     &--wide {
       grid-column: 1 / -1;
+
       @media #{$desktop} {
         height: 400px;
       }

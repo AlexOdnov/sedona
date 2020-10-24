@@ -1,20 +1,20 @@
 .btn {
   display: inline-flex;
-  padding: 0.5em 2em;
   align-items: center;
   justify-content: center;
+  padding: 0.5em 2em;
+  font-weight: $font-weight-bold;
 
   font-size: $font-size-btn;
-  font-weight: $font-weight-bold;
   text-decoration: none;
   text-transform: uppercase;
   color: $font-color-btn;
 
-  border: 2px solid $bg-color-btn;
   background: $bg-color-btn;
+  border: 2px solid $bg-color-btn;
+  outline: none;
 
   transition: all 0.3s ease 0s;
-  outline: none;
 
   &:hover,
   &:focus {
@@ -23,6 +23,7 @@
     background-color: $bg-color-btn--hover;
     border-color: $bg-color-btn--hover;
   }
+
   &:active {
     color: $font-color-btn--active;
 
@@ -30,11 +31,12 @@
     border-color: $bg-color-btn--active;
   }
 
-  // .btn--wide
+  //.btn--wide
   &--wide {
     width: 100%;
   }
-  // .btn--center
+
+  //.btn--center
   &--center {
     display: flex;
     margin: 0 auto;

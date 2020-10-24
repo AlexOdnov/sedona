@@ -1,16 +1,17 @@
 .navigation {
-  // $header-height: 70px;
+  //$header-height: 70px;
   $mob-mozilla: 45px; //mobile mozilla bug with bottom navbar
 
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 4;
 
   width: 100%;
+  color: $font-color-light;
 
   background-color: $color-accent-1;
-  color: $font-color-light;
-  z-index: 4;
+
   transform: translateY(-100%);
 
   @media #{$tablet} {
@@ -22,24 +23,24 @@
     color: $font-color-base;
 
     background-color: initial;
+
     transform: translateY(0);
   }
 
   &__list {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: center;
     flex-wrap: nowrap;
+    align-items: center;
+    justify-content: start;
     max-height: calc(100vh - #{$header-height} - #{$mob-mozilla});
     overflow-y: auto;
 
     @media #{$tablet} {
-      flex-wrap: wrap;
       flex-direction: row;
+      flex-wrap: wrap;
       justify-content: space-between;
       width: 100%;
-
       overflow-y: initial;
     }
   }
@@ -47,29 +48,31 @@
   &__item {
     width: 100%;
 
-    border-bottom: 1px solid #678fa8;
     border-top: 1px solid #9ac2db;
+    border-bottom: 1px solid #678fa8;
 
     &:first-child {
       border-top: none;
     }
+
     &:last-child {
       border-bottom: none;
     }
 
     @media #{$tablet} {
       flex-grow: 1;
-
       flex-basis: 140px;
 
       border: none;
     }
+
     @media #{$desktop} {
       flex-basis: 240px;
     }
 
     &--logo {
       display: none;
+
       @media #{$tablet} {
         position: relative;
 
@@ -83,11 +86,11 @@
     display: block;
     padding: 1em 0.5em;
 
-    text-align: center;
+    font-weight: $font-weight-bold;
     font-size: $font-size-big;
+    text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    font-weight: $font-weight-bold;
 
     transition: all 0.3s ease 0s;
 
@@ -95,6 +98,7 @@
     &[href]:focus {
       background-color: darken($color-accent-1, 15%);
     }
+
     &[href]:active {
       color: rgba($color-light-1, 0.3);
       background-color: darken($color-accent-1, 25%);
@@ -104,11 +108,13 @@
       &:not([href]) {
         color: #766357;
       }
+
       &[href]:hover,
       &[href]:focus {
         color: $color-accent-1;
         background-color: initial;
       }
+
       &[href]:active {
         color: rgba($font-color-base, 0.3);
         background-color: initial;
@@ -118,8 +124,8 @@
     &--logo {
       padding: 0;
 
-      line-height: 1;
       font-size: 0;
+      line-height: 1;
     }
   }
 

@@ -20,6 +20,10 @@ const webpackstream = require('webpack-stream');
 const projectFolder = './build/';
 const sourceFolder = './src/';
 const localIPAddress = '192.168.1.40';
+const browserPath = [
+  'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+  'C:\\Program Files\\Firefox Developer Edition\\firefox.exe',
+];
 
 const path = {
   project: {
@@ -277,10 +281,7 @@ const server = () => {
       baseDir: projectFolder,
     },
     host: localIPAddress,
-    browser: [
-      'chrome',
-      'C:\\Program Files\\Firefox Developer Edition\\firefox.exe',
-    ],
+    browser: browserPath,
   });
 
   watch(path.watch.html, html);

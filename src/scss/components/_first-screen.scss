@@ -1,20 +1,20 @@
 .first-screen {
   position: relative;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: calc(100vh - #{$header-height});
   max-height: 520px;
   padding-bottom: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   background: url(../../img/backgrounds/header-tablet.jpg) no-repeat
     center/cover;
 
   @media #{$tablet} {
-    padding-bottom: 60px;
     min-height: 478px;
+    padding-bottom: 60px;
 
     background-image: url(../../img/backgrounds/header-desktop.jpg);
   }
@@ -31,18 +31,20 @@
     height: 40px;
 
     background-image: url(../../img/backgrounds/header-wrapper.svg);
-    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
+
     @media #{$tablet} {
       height: 60px;
     }
   }
 
-  // .first-screen__promo
+  //.first-screen__promo
   &__promo {
     width: 282px;
     height: 214px;
+
     @media #{$tablet} {
       width: 460px;
       height: 350px;
