@@ -8,9 +8,11 @@ const fileinclude = require('gulp-file-include');
 const htmlmin = require('gulp-htmlmin');
 const sassglob = require('gulp-sass-glob');
 const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
-const gcmq = require('gulp-group-css-media-queries');
-const csso = require('gulp-csso');
+const postcss = require('gulp-postcss');
+const postcssWebp = require('webp-in-css/plugin');
+const postcssAutoprefixer = require('autoprefixer');
+const postcssMQpack = require('css-mqpacker');
+const postcssCsso = require('postcss-csso');
 const imagemin = require('gulp-imagemin');
 const webp = require('gulp-webp');
 const favicon = require('gulp-favicons');
@@ -34,6 +36,7 @@ const path = {
     bgImg: `${projectFolder}img/backgrounds/`,
     contentImg: `${projectFolder}img/contentImage/`,
     svgSprite: `${projectFolder}img/svgSprite/`,
+    data: `${sourceFolder}data/`,
   },
   source: {
     html: [`${sourceFolder}html/*.html`, `!${sourceFolder}html/_*.html`],
@@ -43,6 +46,7 @@ const path = {
     bgImg: `${sourceFolder}img/backgrounds/*`,
     contentImg: `${sourceFolder}img/contentImage/*`,
     svgSprite: `${sourceFolder}img/svgSprite/*.svg`,
+    data: `${sourceFolder}data/*`,
   },
   watch: {
     html: `${sourceFolder}html/*.html`,
@@ -52,6 +56,7 @@ const path = {
     bgImg: `${sourceFolder}img/backgrounds/*`,
     contentImg: `${sourceFolder}img/contentImage/*`,
     svgSprite: `${sourceFolder}img/svgSprite/*.svg`,
+    data: `${sourceFolder}data/*`,
   },
 };
 
@@ -102,16 +107,13 @@ const css = () => {
       )
     )
     .pipe(replace(/\.\.\/\.\.\//g, '../'))
-    .pipe(gcmq())
     .pipe(
-      autoprefixer({
-        cascade: false,
-      })
-    )
-    .pipe(
-      csso({
-        forceMediaMerge: false,
-      })
+      postcss([
+        postcssWebp(),
+        postcssAutoprefixer(),
+        postcssCsso(),
+        postcssMQpack(),
+      ])
     )
     .pipe(
       rename({
@@ -131,11 +133,13 @@ const bgImg = () => {
           progressive: true,
         }),
         imagemin.optipng({
-          optimizationLevel: 3,
+          optimizationLevel: 2,
         }),
         imagemin.svgo(),
       ])
     )
+    .pipe(dest(path.project.bgImg))
+    .pipe(webp({ quality: 85 }))
     .pipe(dest(path.project.bgImg))
     .pipe(browserSync.stream());
 };
@@ -149,13 +153,13 @@ const contentImg = () => {
           progressive: true,
         }),
         imagemin.optipng({
-          optimizationLevel: 3,
+          optimizationLevel: 2,
         }),
         imagemin.svgo(),
       ])
     )
     .pipe(dest(path.project.contentImg))
-    .pipe(webp())
+    .pipe(webp({ quality: 85 }))
     .pipe(dest(path.project.contentImg))
     .pipe(browserSync.stream());
 };
@@ -227,6 +231,7 @@ const js = () => {
                 loader: 'babel-loader',
                 options: {
                   presets: ['@babel/preset-env'],
+                  plugins: ['@babel/plugin-proposal-class-properties'],
                 },
               },
             },
@@ -258,6 +263,7 @@ const jsBuild = () => {
                 loader: 'babel-loader',
                 options: {
                   presets: ['@babel/preset-env'],
+                  plugins: ['@babel/plugin-proposal-class-properties'],
                 },
               },
             },
@@ -273,6 +279,10 @@ const jsBuild = () => {
     )
     .pipe(dest(path.project.js))
     .pipe(browserSync.stream());
+};
+
+const data = () => {
+  return src(path.source.data).pipe(dest(path.project.data));
 };
 
 const server = () => {
@@ -291,6 +301,7 @@ const server = () => {
   watch(path.watch.favicons, favicons);
   watch(path.watch.svgSprite, svgSprite);
   watch(path.watch.js, js);
+  watch(path.watch.data, data);
 };
 
 const ieTest = () => {
@@ -313,6 +324,7 @@ exports.favicon = favicons;
 exports.svg = svgSprite;
 exports.js = js;
 exports.jsBuild = jsBuild;
+exports.data = data;
 exports.server = server;
 exports.ieTest = ieTest;
 
@@ -320,11 +332,11 @@ exports.ieTest = ieTest;
 
 exports.default = series(
   clean,
-  parallel(html, css, js, bgImg, contentImg, favicons, svgSprite),
+  parallel(html, css, js, bgImg, contentImg, favicons, svgSprite, data),
   server
 );
 
 exports.build = series(
   clean,
-  parallel(html, css, jsBuild, bgImg, contentImg, favicons, svgSprite)
+  parallel(html, css, jsBuild, bgImg, contentImg, favicons, svgSprite, data)
 );
